@@ -9,6 +9,7 @@ public class telaCadastro extends javax.swing.JFrame {
 
     public telaCadastro() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -234,16 +235,19 @@ public class telaCadastro extends javax.swing.JFrame {
     String isbn = tISBN.getText();
     String genero = tGenero.getText();
     int quantidade = Integer.parseInt(tQuantidade.getText());
-
+    
+    livros livro = new livros(titulo, autor, genero, isbn, quantidade);
+    LivrosDAO dao = new LivrosDAO();
+    dao.inserirLivro(livro);
+    
     try (Connection conn = Conexao.conectar()) {
-        String sql = "INSERT INTO livros (titulo, autor, isbn, genero, quantidade, disponibilidade) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO livro (titulo, autor, isbn, quantidade) VALUES (?, ?, ?, ?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, titulo);
         stmt.setString(2, autor);
         stmt.setString(3, isbn);
-        stmt.setString(4, genero);
-        stmt.setInt(5, quantidade);
-        stmt.setString(6, "Disponível");
+        stmt.setInt(4, quantidade);
+
         stmt.executeUpdate();
         JOptionPane.showMessageDialog(this, "Livro cadastrado com sucesso.");
     } catch (SQLException e) {

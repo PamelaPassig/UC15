@@ -11,6 +11,7 @@ public class telaListagem extends javax.swing.JFrame {
 
     public telaListagem() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
 

@@ -1,11 +1,13 @@
-
+import java.sql.Connection;
 import javax.swing.JOptionPane;
-
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class telaEmprestimo extends javax.swing.JFrame {
 
     public telaEmprestimo() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")

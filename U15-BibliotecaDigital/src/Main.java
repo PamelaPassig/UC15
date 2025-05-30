@@ -1,7 +1,6 @@
 
-public class Main {
-    public static void main(String[] args) {
-        telaLogin telaLogin = new telaLogin();
-        telaLogin.setVisible(true);
-    }
+public static void main(String[] args) {
+    java.awt.EventQueue.invokeLater(() -> {
+        new telaMenu().setVisible(true);
+    });
 }
