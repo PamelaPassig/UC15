@@ -7,7 +7,6 @@ public class Conexao {
 
     public static Connection conectar() throws SQLException {
         try {
-            // Carrega explicitamente o driver JDBC
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new SQLException("Driver JDBC do MySQL não encontrado.", e);

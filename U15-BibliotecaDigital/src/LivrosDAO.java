@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class LivrosDAO {
     public void inserirLivro(livros livro) {
-        String sql = "INSERT INTO livro (titulo, autor, genero, isbn, quantidade) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO livro (titulo, autor, genero, quantidade) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = Conexao.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -15,8 +15,7 @@ public class LivrosDAO {
             stmt.setString(1, livro.getTitulo());
             stmt.setString(2, livro.getAutor());
             stmt.setString(3, livro.getGenero());
-            stmt.setString(4, livro.getIsbn());
-            stmt.setInt(5, livro.getQuantidade());
+            stmt.setInt(4, livro.getQuantidade());
 
             stmt.executeUpdate();
             System.out.println("Livro cadastrado com sucesso.");

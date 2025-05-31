@@ -4,23 +4,10 @@ public class livros {
     private String titulo;
     private String autor;
     private String genero;
-    private String isbn;
     private int quantidade;
-    private String disponibilidade;
 
-    // Construtor padrão
     public livros() {}
 
-    // Construtor completo
-    public livros(String titulo, String autor, String genero, String isbn, int quantidade) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.genero = genero;
-        this.isbn = isbn;
-        this.quantidade = quantidade;
-    }
-
-    // Construtor alternativo para listagem (sem ISBN)
     public livros(String titulo, String autor, String genero, int quantidade) {
         this.titulo = titulo;
         this.autor = autor;
@@ -59,14 +46,6 @@ public class livros {
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
     }
 
     public int getQuantidade() {
