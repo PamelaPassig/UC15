@@ -251,27 +251,40 @@ public class telaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    String titulo = tTitulo.getText();
-    String autor = tAutor.getText();
-    String genero = tGenero.getText();
-    int quantidade = Integer.parseInt(tQuantidade.getText());
-    
-    livros livro = new livros(titulo, autor, genero, quantidade);
-    LivrosDAO dao = new LivrosDAO();
-    dao.inserirLivro(livro);
-    
-    try (Connection conn = Conexao.conectar()) {
-        String sql = "INSERT INTO livro (titulo, gênero, autor, quantidade) VALUES (?, ?, ?, ?)";
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setString(1, titulo);
-        stmt.setString(2, autor);
-        stmt.setString(3, genero);
-        stmt.setInt(4, quantidade);
+    String titulo = tTitulo.getText().trim();
+    String autor = tAutor.getText().trim();
+    String genero = tGenero.getText().trim();
+    String qtdStr = tQuantidade.getText().trim();
 
-        stmt.executeUpdate();
-        JOptionPane.showMessageDialog(this, "Livro cadastrado com sucesso.");
+    if (titulo.isEmpty() || autor.isEmpty() || genero.isEmpty() || qtdStr.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos os campos são obrigatórios.", "Erro", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    try {
+        int quantidade = Integer.parseInt(qtdStr);
+
+        try (Connection conn = Conexao.conectar()) {
+            String sql = "INSERT INTO livro (titulo, gênero, autor, quantidade) VALUES (?, ?, ?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, titulo);
+            stmt.setString(2, genero); 
+            stmt.setString(3, autor);  
+            stmt.setInt(4, quantidade);
+
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Livro cadastrado com sucesso!");
+
+            tTitulo.setText("");
+            tAutor.setText("");
+            tGenero.setText("");
+            tQuantidade.setText("");
+        }
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Quantidade deve ser um número inteiro.", "Erro", JOptionPane.ERROR_MESSAGE);
     } catch (SQLException e) {
-        JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Erro ao salvar no banco: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
