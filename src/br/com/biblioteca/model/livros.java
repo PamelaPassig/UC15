@@ -1,3 +1,5 @@
+package br.com.biblioteca.model;
+
 public class livros {
     private int id;
     private String titulo;
@@ -14,7 +16,6 @@ public class livros {
         this.quantidade = quantidade;
     }
 
-    // Getters e Setters
     public int getId() {
         return id;
     }
