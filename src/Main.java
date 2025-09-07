@@ -1,10 +1,10 @@
-import br.com.biblioteca.dao.LivroDAO;
+import br.com.biblioteca.dao.LivrosDAO;
 import br.com.biblioteca.model.Livro;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        LivroDAO dao = new LivroDAO();
+        LivrosDAO dao = new LivrosDAO();
 
         // Inserir livro
         Livro livro = new Livro("Dom Casmurro", "Machado de Assis", "Romance", 5);
