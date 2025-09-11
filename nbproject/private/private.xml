@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/src/br/com/biblioteca/model/livros.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/test/LivroTest.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/src/br/com/biblioteca/dao/ILivroDAO.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/src/Main.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/src/br/com/biblioteca/util/Conexao.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/src/br/com/biblioteca/model/Livro.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/UC15/src/br/com/biblioteca/dao/LivrosDAO.java</file>
         </group>
     </open-files>

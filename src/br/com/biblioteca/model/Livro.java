@@ -58,4 +58,7 @@ public class Livro {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+    public boolean temEstoqueDisponivel() {
+        return this.quantidade > 0;
+    }
 }
